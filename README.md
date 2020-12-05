@@ -11,6 +11,6 @@ Also, users can contact to mentors via the chat feature.
 - Chat with mentors
 - Add question to existing category
 
-This project was mades as a part of Flutter open Elective IA.
+This project was made as a part of Flutter open Elective IA.
 
 Made by Parth Shah, Smit Shah, Amogh Sinkar.
