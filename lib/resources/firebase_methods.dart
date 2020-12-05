@@ -12,7 +12,7 @@ class FirebaseMethods {
 
   final bool isAdmin = false;
   final bool isMentor = false;
-  final String profession = 'bb';
+  final String profession = '';
   final String about = '';
   final String age = '';
   final String state = '';

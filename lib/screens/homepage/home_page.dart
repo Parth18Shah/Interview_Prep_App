@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.white,
             body: currentindex == 0
                 ? buildHomePage(height, width)
-                : currentindex == 1 ? MentorPage(currentUser: user) : logout(),
+                : MentorPage(currentUser: user) ,
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             floatingActionButton: FloatingActionButton(
                 child: Icon(Icons.add),
@@ -83,10 +83,15 @@ class _HomePageState extends State<HomePage> {
                 }),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: currentindex,
-              onTap: (value) {
-                setState(() {
+              onTap: (value) async {
+                if (value == 2) {
+                  await logout();
+                }else{
+                  setState(() {
                   currentindex = value;
                 });
+                }
+                
               },
               items: [
                 BottomNavigationBarItem(
@@ -167,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                               fontFamily: 'Robo-semibold-italic',
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 40,
+                              fontSize: 30,
                             ),
                           ),
                         ),

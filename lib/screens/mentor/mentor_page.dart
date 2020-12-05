@@ -19,13 +19,13 @@ class MentorPage extends StatefulWidget {
 class _MentorPageState extends State<MentorPage> {
   FirebaseRepository _repository = FirebaseRepository();
   // bool loading = true;
-  User user;
   bool isMentor;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    print(widget.currentUser.email);
     check();
     // getCurrentUserDetails();
   }
@@ -139,7 +139,7 @@ class _MentorPageState extends State<MentorPage> {
                               physics: NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return MentorTile(
-                                    currentUser: user,
+                                    currentUser: widget.currentUser,
                                     width: width,
                                     height: height,
                                     index: index,
@@ -151,16 +151,6 @@ class _MentorPageState extends State<MentorPage> {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: mainColor,
-        child: Icon(
-          Icons.exit_to_app,
-          color: Colors.white,
-        ),
-        onPressed: () async {
-          await _repository.logout();
-        },
       ),
     );
   }
@@ -209,7 +199,7 @@ class _MentorPageState extends State<MentorPage> {
                 ),
                 SizedBox(height: 25),
                 StreamBuilder<List<User>>(
-                    stream: _repository.chatListForMentors(user.email),
+                    stream: _repository.chatListForMentors(widget.currentUser.email),
                     initialData: [],
                     builder: (context, snapshot) {
                       List<User> users = snapshot.data;
@@ -237,7 +227,7 @@ class _MentorPageState extends State<MentorPage> {
                               physics: NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return MentorTile(
-                                    currentUser: user,
+                                    currentUser: widget.currentUser,
                                     width: width,
                                     height: height,
                                     index: index,
@@ -249,16 +239,6 @@ class _MentorPageState extends State<MentorPage> {
             ),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: mainColor,
-        child: Icon(
-          Icons.exit_to_app,
-          color: Colors.white,
-        ),
-        onPressed: () async {
-          await _repository.logout();
-        },
       ),
     );
   }

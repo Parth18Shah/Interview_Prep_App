@@ -54,6 +54,13 @@ class _MentorChatScreenPageState extends State<MentorChatScreenPage> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(widget.currentUser.email);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -72,8 +79,11 @@ class _MentorChatScreenPageState extends State<MentorChatScreenPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CircleAvatar(
-                backgroundImage: AssetImage('images/cillian.jpg'),
+              Hero(
+                tag: "mentor-${widget.index}",
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('images/acc.png'),
+                ),
               ),
               SizedBox(width: 5),
               Text(

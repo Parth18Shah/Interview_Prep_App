@@ -25,7 +25,7 @@ class MentorTile extends StatelessWidget {
               toUser: mentor,
             ),
           ),
-        );
+        ); 
       },
       child: Container(
         height: width * 0.3,
@@ -33,7 +33,7 @@ class MentorTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-              onTap: () {
+              onTap:mentor.isMentor != true ? (){} : () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -42,9 +42,12 @@ class MentorTile extends StatelessWidget {
                   ),
                 );
               },
-              child: CircleAvatar(
-                backgroundImage: AssetImage('images/cillian.jpg'),
-                radius: 45,
+              child: Hero(
+                tag: "mentor-$index",
+                              child: CircleAvatar(
+                  backgroundImage: AssetImage('images/acc.png'),
+                  radius: 45,
+                ),
               ),
             ),
             SizedBox(width: 10),

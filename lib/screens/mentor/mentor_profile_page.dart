@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../models/user.dart';
+
 class MentorProfilePage extends StatelessWidget {
   final index;
-  final mentor;
+  User mentor;
   MentorProfilePage({this.index, this.mentor});
   @override
   Widget build(BuildContext context) {
@@ -31,13 +33,16 @@ class MentorProfilePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  width: width * 0.4,
-                  height: width * 0.6,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('images/cillian.jpg'),
+                Hero(
+                  tag: "mentor-$index",
+                                  child: Container(
+                    width: width * 0.4,
+                    height: width * 0.6,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('images/acc.png'),
+                      ),
                     ),
                   ),
                 ),
@@ -45,7 +50,7 @@ class MentorProfilePage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '${mentor["username"].toString().split(" ")[0]}',
+                      '${mentor.username.toString().split(" ")[0]}',
                       style: TextStyle(
                         fontFamily: 'Gilroy-bold',
                         fontSize: 45,
@@ -54,7 +59,7 @@ class MentorProfilePage extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     Text(
-                      '${mentor["username"].toString().split(" ")[1][0]}',
+                      '${mentor.username.toString().split(" ")[1][0]}',
                       style: TextStyle(
                         fontFamily: 'Gilroy',
                         fontSize: 45,
@@ -64,7 +69,7 @@ class MentorProfilePage extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '${mentor["age"]} years, ${mentor["state"]}, ${mentor["country"]}',
+                  '${mentor.age} years, ${mentor.state}, ${mentor.country}',
                   style: TextStyle(
                     fontFamily: 'Robo-light',
                     fontSize: 12,
@@ -83,7 +88,7 @@ class MentorProfilePage extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  '${mentor["profession"]}',
+                  '${mentor.profession}',
                   style: TextStyle(
                     fontFamily: 'Robo-light',
                     fontSize: 20,
@@ -104,7 +109,7 @@ class MentorProfilePage extends StatelessWidget {
                 Container(
                   width: width * 0.9,
                   child: Text(
-                    '${mentor["about"]}',
+                    '${mentor.about}',
                     style: TextStyle(
                       fontFamily: 'Robo-light',
                       fontSize: 20,
