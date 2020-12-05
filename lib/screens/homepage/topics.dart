@@ -24,7 +24,7 @@ class Topics extends StatelessWidget {
         height: width * 0.3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.red[100],
+          color: Colors.lightBlueAccent[100],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +40,7 @@ class Topics extends StatelessWidget {
               '${category.name}',
               style: TextStyle(
                 fontFamily: 'Robo-semibold-italic',
-                color: Colors.blue[900],
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),

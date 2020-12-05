@@ -50,9 +50,14 @@ class _addQnAState extends State<addQnA> {
     } catch (err) {}
   }
 
+  void clearForm() {
+    _formKey.currentState.reset();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           leading: GestureDetector(
@@ -60,7 +65,7 @@ class _addQnAState extends State<addQnA> {
               onTap: () {
                 Navigator.of(context).pop();
               }),
-          title: Text('Add a question and its answer for ${widget.name}.'),
+          title: Text('Add a QnA for the Category: ${widget.name}'),
         ),
         body: Form(
           key: _formKey,
@@ -68,58 +73,130 @@ class _addQnAState extends State<addQnA> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Enter the question:',
-                style: TextStyle(
-                  fontFamily: 'Robo-semibold-italic',
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 15,
+              Container(
+                margin: EdgeInsets.all(12),
+                child: Text(
+                  'Enter the question:',
+                  style: TextStyle(
+                    fontFamily: 'Robo-semibold-italic',
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-              TextFormField(
-                  controller: _questionController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Please enter the question';
-                    }
-                    return null;
-                  }),
+              Container(
+                margin: EdgeInsets.all(12),
+                child: TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        labelText: "Question",
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide(
+                              color: Colors.blue[500],
+                              width: 2,
+                            ))),
+                    controller: _questionController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter the question';
+                      }
+                      return null;
+                    }),
+              ),
               SizedBox(
                 height: 20,
               ),
-              Text(
-                'Enter the answer for the above question:',
-                style: TextStyle(
-                  fontFamily: 'Robo-semibold-italic',
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 15,
+              Container(
+                margin: EdgeInsets.all(12),
+                child: Text(
+                  'Enter the answer for the above question:',
+                  style: TextStyle(
+                    fontFamily: 'Robo-semibold-italic',
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 18,
+                  ),
                 ),
               ),
-              TextFormField(
-                  controller: _answerController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Please enter it's answer";
-                    }
-                    return null;
-                  }),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: RaisedButton(
-                  onPressed: () {
-                    // // Validate returns true if the form is valid, or false
-                    // // otherwise.
-                    // if (_formKey.currentState.validate()) {
-                    //   // If the form is valid, display a Snackbar.
-                    //   Scaffold.of(context).showSnackBar(
-                    //       SnackBar(content: Text('Processing Data')));
-                    // }
-                    onSubmit();
-                  },
-                  child: Text('Submit'),
-                ),
+              Container(
+                margin: EdgeInsets.all(12),
+                child: TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        labelText: "Answer",
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide(
+                              color: Colors.blue[500],
+                              width: 2,
+                            ))),
+                    controller: _answerController,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please enter it's answer";
+                      }
+                      return null;
+                    }),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(vertical: 16.0),
+              //   child: RaisedButton(
+              //     onPressed: () {
+              //       // // Validate returns true if the form is valid, or false
+              //       // // otherwise.
+              //       // if (_formKey.currentState.validate()) {
+              //       //   // If the form is valid, display a Snackbar.
+              //       //   Scaffold.of(context).showSnackBar(
+              //       //       SnackBar(content: Text('Processing Data')));
+              //       // }
+              //       onSubmit();
+              //     },
+              //     child: Text('Submit'),
+              //   ),
+              // ),
+              Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(15),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      child: RaisedButton(
+                        color: Colors.blue[300],
+                        elevation: 4,
+                        onPressed: () {
+                          // // Validate returns true if the form is valid, or false
+                          // // otherwise.
+                          // if (_formKey.currentState.validate()) {
+                          //   // If the form is valid, display a Snackbar.
+                          //   Scaffold.of(context).showSnackBar(
+                          //       SnackBar(content: Text('Processing Data')));
+                          // }
+                          onSubmit();
+                        },
+                        child: Text('Submit'),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(15),
+                    child: MaterialButton(
+                      color: Colors.grey[300],
+                      textColor: Colors.black,
+                      child: Text(
+                        'Clear',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      elevation: 4,
+                      onPressed: clearForm,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.white,
             body: currentindex == 0
                 ? buildHomePage(height, width)
-                : MentorPage(currentUser: user) ,
+                : MentorPage(currentUser: user),
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             floatingActionButton: FloatingActionButton(
                 child: Icon(Icons.add),
@@ -86,12 +86,11 @@ class _HomePageState extends State<HomePage> {
               onTap: (value) async {
                 if (value == 2) {
                   await logout();
-                }else{
+                } else {
                   setState(() {
-                  currentindex = value;
-                });
+                    currentindex = value;
+                  });
                 }
-                
               },
               items: [
                 BottomNavigationBarItem(
@@ -163,16 +162,30 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 60, left: 20, right: 10),
+                        padding: const EdgeInsets.only(top: 40, left: 10),
                         child: Container(
                           child: Text(
                             'Welcome back ${user.username}!',
                             style: TextStyle(
-                              fontFamily: 'Robo-semibold-italic',
+                              fontFamily: 'Robo-medium',
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 30,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 45, left: 20, right: 10),
+                        child: Container(
+                          child: Text(
+                            'A place which can help you to achieve your dreams!!!',
+                            style: TextStyle(
+                              fontFamily: 'Robo-semibold-italic',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 21,
                             ),
                           ),
                         ),
@@ -194,17 +207,13 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(
-                          begin: Alignment.centerRight,
-                          end: Alignment(0.3, 5.0),
-                          colors: [
-                            const Color(0xffdd2c00),
-                            const Color(0xffff9e80)
-                          ],
-                        )),
+                            begin: Alignment.centerRight,
+                            end: Alignment(0.3, 5.0),
+                            colors: [Colors.blueGrey, Colors.lightBlue])),
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 20),
                           child: Text(
                             'Start preparing for your interview',
                             style: TextStyle(
@@ -216,12 +225,12 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 50, left: 10),
+                          padding: const EdgeInsets.only(top: 50, left: 20),
                           child: Container(
                             padding: EdgeInsets.all(7.0),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Colors.redAccent[700],
+                              color: Colors.blueGrey,
                             ),
                             child: Text(
                               'Choose one of the categories below',

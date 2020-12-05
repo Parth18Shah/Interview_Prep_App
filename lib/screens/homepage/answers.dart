@@ -24,7 +24,7 @@ class _AnswersState extends State<Answers> {
             title: Text('Answers'),
             centerTitle: true,
             actions: [Padding(padding: EdgeInsets.all(8))],
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.blue,
           ),
           body: Container(
             decoration: BoxDecoration(
@@ -41,7 +41,7 @@ class _AnswersState extends State<Answers> {
                   margin: EdgeInsets.all(30.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.red[200],
+                    color: Colors.lightBlue[200],
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(
@@ -60,13 +60,16 @@ class _AnswersState extends State<Answers> {
                 SizedBox(
                   height: 20.0,
                 ),
-                Text(
-                  '${widget.record.answer}',
-                  style: TextStyle(
-                    fontFamily: 'Robo-medium',
-                    color: Colors.blue[900],
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                Container(
+                  margin: EdgeInsets.all(12),
+                  child: Text(
+                    '${widget.record.answer}',
+                    style: TextStyle(
+                      fontFamily: 'Robo-medium',
+                      color: Colors.blue[900],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
                 )
               ],

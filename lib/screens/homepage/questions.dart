@@ -24,7 +24,7 @@ class Questions extends StatelessWidget {
         height: width * 0.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          color: Colors.red[200],
+          color: Colors.lightBlueAccent,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

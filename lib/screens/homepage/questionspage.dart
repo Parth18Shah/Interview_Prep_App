@@ -31,7 +31,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
           centerTitle: true,
           automaticallyImplyLeading: true,
           actions: [Padding(padding: EdgeInsets.all(8))],
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blue,
         ),
         body: Container(
           decoration: BoxDecoration(
